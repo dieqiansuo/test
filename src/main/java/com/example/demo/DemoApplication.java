@@ -16,6 +16,7 @@ public class DemoApplication {
 	@Autowired
 	private BookBean bookBean;
 
+
 	public static void main(String[] args) {
 		SpringApplication springApplication = new SpringApplication(DemoApplication.class);
 		//springApplication.setBannerMode(Banner.Mode.OFF);
