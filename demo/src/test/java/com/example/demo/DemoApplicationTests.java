@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import com.example.demo.service.RedisService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -15,12 +16,18 @@ public class DemoApplicationTests {
 
 	@Autowired
 	private StringRedisTemplate stringRedisTemplate;
+	@Autowired
+	private RedisService redisService;
 
 	@Test
 	public void contextLoads() {
-
 		stringRedisTemplate.opsForValue().set("zzp","big z");
 		Assert.assertEquals("big z",stringRedisTemplate.opsForValue().get("zzp"));
 	}
 
+	@Test
+	public void getString() {
+		redisService.set("name","zhangsan");
+		System.out.println(redisService.get("name"));
+	}
 }
